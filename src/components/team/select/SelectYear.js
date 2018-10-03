@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import { schoolDetails } from "../../../dummyData";
+import "../styles/Select.css";
 
 class SelectYear extends Component {
   state = {
@@ -31,8 +32,16 @@ class SelectYear extends Component {
     const { handleChange } = this;
     const { currentYear, years } = this.state;
     return (
-      <Select name="currentYear" onChange={handleChange} value={currentYear}>
-        <MenuItem value={1}>Select Year</MenuItem>
+      <Select
+        className="team_select"
+        name="currentYear"
+        onChange={handleChange}
+        value={currentYear}
+        style={{ borderBottom: "green" }}
+      >
+        <MenuItem value={1} disabled>
+          Select Year
+        </MenuItem>
         {years}
       </Select>
     );

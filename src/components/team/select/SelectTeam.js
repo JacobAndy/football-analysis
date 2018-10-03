@@ -4,6 +4,7 @@ import { getSchools } from "../../../ducks/teams";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import SelectYear from "./SelectYear";
+import "../styles/Select.css";
 
 class SelectTeam extends Component {
   state = { value: 1, schools: null };
@@ -33,8 +34,15 @@ class SelectTeam extends Component {
     const { schools, value } = this.state;
     return (
       <div>
-        <Select name="value" onChange={handleChange} value={value}>
-          <MenuItem value={1}>Select Team</MenuItem>
+        <Select
+          className="team_select"
+          name="value"
+          onChange={handleChange}
+          value={value}
+        >
+          <MenuItem value={1} disabled>
+            Select Team
+          </MenuItem>
           {schools}
         </Select>
         <SelectYear currentTeam={value} />

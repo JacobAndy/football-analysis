@@ -1,5 +1,17 @@
 @import "../../../Sass/_mixins";
 @import "../../../Sass/_variables";
 .both_teams {
-  @include flex(space-around, center, row);
+  @include flex(space-around, flex-start, row);
+  &__h2 {
+    @include flex(center, center, row);
+    font-weight: 900;
+    font-size: 28px;
+    color: black;
+    letter-spacing: 4px;
+    height: 80px;
+  }
+  &__chart {
+    position: absolute;
+    bottom: 30px;
+  }
 }

@@ -1,6 +1,20 @@
 .both_teams {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: row;
   flex-wrap: wrap; }
+  .both_teams__h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-weight: 900;
+    font-size: 28px;
+    color: black;
+    letter-spacing: 4px;
+    height: 80px; }
+  .both_teams__chart {
+    position: absolute;
+    bottom: 30px; }
