@@ -1,13 +1,17 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
+
+import store from "./ducks/store";
+import { Provider } from "react-redux";
+
+import BothTeams from "./components/team/BothTeams";
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <h1>Football Analysis Initial Set up</h1>
-      </div>
+      <Provider store={store}>
+        <BothTeams />
+      </Provider>
     );
   }
 }
