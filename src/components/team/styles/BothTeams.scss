@@ -1,0 +1,5 @@
+@import "../../../Sass/_mixins";
+@import "../../../Sass/_variables";
+.both_teams {
+  @include flex(space-around, center, row);
+}

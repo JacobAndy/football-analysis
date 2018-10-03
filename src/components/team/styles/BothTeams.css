@@ -1,0 +1,6 @@
+.both_teams {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap; }

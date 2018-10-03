@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getSchools } from "../../../ducks/teams";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import SelectYear from "./SelectYear";
 
 class SelectTeam extends Component {
   state = { value: 1, schools: null };
@@ -28,17 +29,15 @@ class SelectTeam extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
   render() {
-    const { schools } = this.state;
+    const { handleChange } = this;
+    const { schools, value } = this.state;
     return (
       <div>
-        <Select
-          name="value"
-          onChange={this.handleChange}
-          value={this.state.value}
-        >
+        <Select name="value" onChange={handleChange} value={value}>
           <MenuItem value={1}>Select Team</MenuItem>
           {schools}
         </Select>
+        <SelectYear currentTeam={value} />
       </div>
     );
   }

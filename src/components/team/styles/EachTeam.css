@@ -1,0 +1,27 @@
+.each_team {
+  width: 40vw;
+  min-width: 400px;
+  height: 100vh;
+  position: relative; }
+  .each_team__background_image {
+    width: 100%;
+    height: 100%;
+    background-image: url("https://d2p3bygnnzw9w3.cloudfront.net/req/201809211/tlogo/ncaa/bowling-green-state.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 500px 500px;
+    opacity: 0.4;
+    position: absolute;
+    z-index: -1; }
+  .each_team section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap; }
+    .each_team section div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      flex-wrap: wrap; }
