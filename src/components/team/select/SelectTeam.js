@@ -23,11 +23,14 @@ class SelectTeam extends Component {
     }
   }
   handleChange = event => {
+    const { update } = this.props;
+    update(event.target.value);
     this.setState({ [event.target.name]: event.target.value });
   };
   render() {
     const { handleChange } = this;
     const { schools, value } = this.state;
+    const { type } = this.props;
     return (
       <div className="example">
         <Select
@@ -42,7 +45,7 @@ class SelectTeam extends Component {
           </MenuItem>
           {schools}
         </Select>
-        <SelectYear currentTeam={value} />
+        <SelectYear currentTeam={value} type={type} />
       </div>
     );
   }
