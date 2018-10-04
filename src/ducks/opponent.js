@@ -52,7 +52,7 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         leftOpponent: {
-          ...state.leftOpponent,
+          currentStats: {},
           currentTeam: action.payload[0].data.rows,
           currentLogo: action.payload[1].data.rows[0].logo_link
         }
@@ -61,7 +61,7 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         rightOpponent: {
-          ...state.rightOpponent,
+          currentStats: {},
           currentTeam: action.payload[0].data.rows,
           currentLogo: action.payload[1].data.rows[0].logo_link
         }
