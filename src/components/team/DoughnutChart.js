@@ -93,9 +93,15 @@ class DoughnutChart extends Component {
     return (
       <div>
         <svg ref="doughnut">
-          <text dy=".6em" text-anchor="middle" x="130" y="125">
+          {/* <text dy=".6em" text-anchor="middle" x="130" y="125">
             TEAM WHO WINS
-          </text>
+          </text> */}
+          <image
+            href="https://d2p3bygnnzw9w3.cloudfront.net/req/201809211/tlogo/ncaa/bowling-green-state.png"
+            transform="translate(85,85)"
+            height="100"
+            width="100"
+          />
         </svg>
       </div>
     );

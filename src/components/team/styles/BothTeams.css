@@ -18,3 +18,11 @@
   .both_teams__chart {
     position: absolute;
     bottom: 30px; }
+
+@media (max-width: 843px) {
+  .both_teams {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap; } }

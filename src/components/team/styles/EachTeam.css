@@ -1,6 +1,6 @@
 .each_team {
   width: 40vw;
-  min-width: 400px;
+  min-width: 320px;
   height: 100vh;
   position: relative; }
   .each_team__background_image {
@@ -19,7 +19,7 @@
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
-    margin-top: 15px; }
+    margin-top: 25px; }
     .each_team__details h2 {
       box-sizing: border-box; }
       .each_team__details h2:nth-child(1) {
@@ -29,8 +29,9 @@
       .each_team__details h2:nth-child(2) {
         padding-top: 5px; }
   .each_team section {
-    width: 400px;
-    margin: auto;
+    width: 320px;
+    min-width: 320px;
+    margin: 25px auto 0 auto;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -63,4 +64,9 @@
     .each_team footer h2 {
       font-weight: 900;
       font-size: 100px;
-      color: #333; }
+      color: #333;
+      text-shadow: 2px 2px 3px #333; }
+
+@media (max-width: 843px) {
+  .each_team {
+    width: 100%; } }

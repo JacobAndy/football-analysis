@@ -15,4 +15,5 @@ function BothTeams() {
     </div>
   );
 }
+
 export default BothTeams;

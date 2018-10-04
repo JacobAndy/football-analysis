@@ -1,11 +1,16 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
 import "./styles/EachTeam.css";
+
 import SelectTeam from "./select/SelectTeam";
-import axios from "axios";
+import { getSchools } from "../../ducks/teams";
 
 class EachTeam extends Component {
   state = {};
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.getSchools();
+  }
   render() {
     return (
       <div className="each_team">
@@ -48,4 +53,8 @@ class EachTeam extends Component {
     );
   }
 }
-export default EachTeam;
+let mapStateToProps = state => state;
+export default connect(
+  mapStateToProps,
+  { getSchools }
+)(EachTeam);

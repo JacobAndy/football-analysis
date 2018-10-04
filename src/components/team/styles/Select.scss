@@ -1,6 +1,12 @@
+@import "../../../Sass/_mixins";
+@import "../../../Sass/_variables";
 .team_select {
-  width: 100%;
+  width: 80%;
   text-align: center;
   height: 40px;
   font-weight: 900;
+}
+.example {
+  @include flex(center, center, row);
+  width: 100%;
 }

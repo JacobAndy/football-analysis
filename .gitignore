@@ -12,8 +12,6 @@
 # env
 .env
 
-#dummy data
-/src/dummyData.js
 
 # misc
 .DS_Store

@@ -2,7 +2,7 @@
 @import "../../../Sass/_variables";
 .each_team {
   width: 40vw;
-  min-width: 400px;
+  min-width: 320px;
   height: 100vh;
   position: relative;
   &__background_image {
@@ -19,7 +19,7 @@
   &__details {
     width: 100%;
     @include flex(center, center, column);
-    margin-top: 15px;
+    margin-top: 25px;
     h2 {
       box-sizing: border-box;
 
@@ -34,8 +34,9 @@
     }
   }
   section {
-    width: 400px;
-    margin: auto;
+    width: 320px;
+    min-width: 320px;
+    margin: 25px auto 0 auto;
     @include flex(space-around, center, row);
     div {
       @include flex(center, center, column);
@@ -68,6 +69,12 @@
       font-weight: 900;
       font-size: 100px;
       color: #333;
+      text-shadow: 2px 2px 3px#333;
     }
+  }
+}
+@media (max-width: "843px") {
+  .each_team {
+    width: 100%;
   }
 }

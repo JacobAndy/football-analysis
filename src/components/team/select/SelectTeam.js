@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getSchools } from "../../../ducks/teams";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import SelectYear from "./SelectYear";
@@ -8,10 +7,7 @@ import "../styles/Select.css";
 
 class SelectTeam extends Component {
   state = { value: 1, schools: null };
-  componentDidMount() {
-    const { getSchools } = this.props;
-    getSchools();
-  }
+  componentDidMount() {}
   componentDidUpdate(pP) {
     const { schools } = this.props;
     if (pP.schools !== this.props.schools) {
@@ -33,12 +29,13 @@ class SelectTeam extends Component {
     const { handleChange } = this;
     const { schools, value } = this.state;
     return (
-      <div>
+      <div className="example">
         <Select
           className="team_select"
           name="value"
           onChange={handleChange}
           value={value}
+          autoWidth={false}
         >
           <MenuItem value={1} disabled>
             Select Team
@@ -51,9 +48,6 @@ class SelectTeam extends Component {
   }
 }
 
-let mapStateToProps = state => state;
+let mapStateToProps = state => state.teams;
 
-export default connect(
-  mapStateToProps,
-  { getSchools }
-)(SelectTeam);
+export default connect(mapStateToProps)(SelectTeam);
