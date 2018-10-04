@@ -12,6 +12,9 @@
 # env
 .env
 
+# secret Algo
+/src/ducks/secretAlgo.js
+
 
 # misc
 .DS_Store

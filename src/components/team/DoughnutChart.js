@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import * as d3 from "d3";
 import "./styles/Doughnut.css";
 var data = [
@@ -107,4 +108,5 @@ class DoughnutChart extends Component {
     );
   }
 }
-export default DoughnutChart;
+let mapStateToProps = state => state.opponent;
+export default connect(mapStateToProps)(DoughnutChart);

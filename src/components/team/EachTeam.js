@@ -10,7 +10,7 @@ class EachTeam extends Component {
   render() {
     const { update, type, opponent } = this.props;
     const { currentStats } = opponent[type];
-    console.log(currentStats);
+    console.log(this.props);
     return (
       <div className="each_team">
         <header
