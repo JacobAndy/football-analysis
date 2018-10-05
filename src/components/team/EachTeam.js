@@ -51,11 +51,6 @@ class EachTeam extends Component {
             })`
           }}
         />
-        {/* <h3>
-          {type === "rightOpponent"
-            ? this.props.opponent.rightOpponent.currentStats.school_name
-            : this.props.opponent.leftOpponent.currentStats.school_name}
-        </h3> */}
         <SelectTeam update={update} type={type} />
         <div className="each_team__details">
           <h2>Coach</h2>

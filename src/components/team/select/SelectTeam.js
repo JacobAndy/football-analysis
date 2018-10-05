@@ -6,7 +6,7 @@ import SelectYear from "./SelectYear";
 import "../styles/Select.css";
 
 class SelectTeam extends Component {
-  state = { value: 1, schools: null };
+  state = { value: 1, schools: [], awaitedSchools: [] };
   componentDidMount() {}
   componentDidUpdate(pP) {
     const { schools } = this.props;
@@ -19,7 +19,10 @@ class SelectTeam extends Component {
           </MenuItem>
         );
       });
-      this.setState({ schools: menuItemSchools });
+      this.setState({
+        awaitedSchools: menuItemSchools.slice(0, 25),
+        schools: menuItemSchools
+      });
     }
   }
   handleChange = event => {
@@ -29,7 +32,7 @@ class SelectTeam extends Component {
   };
   render() {
     const { handleChange } = this;
-    const { schools, value } = this.state;
+    const { awaitedSchools, schools, value } = this.state;
     const { type } = this.props;
     return (
       <div className="example">
@@ -39,11 +42,20 @@ class SelectTeam extends Component {
           onChange={handleChange}
           value={value}
           autoWidth={false}
+          onClick={() =>
+            setTimeout(
+              () => this.setState({ awaitedSchools: this.state.schools }),
+              1
+            )
+          }
+          onBlurCapture={() => {
+            this.setState({ awaitedSchools: schools.slice(0, 25) });
+          }}
         >
           <MenuItem value={1} disabled>
             Select Team
           </MenuItem>
-          {schools}
+          {awaitedSchools}
         </Select>
         <SelectYear currentTeam={value} type={type} />
       </div>
