@@ -6,11 +6,39 @@ import "./styles/EachTeam.css";
 import SelectTeam from "./select/SelectTeam";
 
 class EachTeam extends Component {
-  state = {};
+  state = {
+    percent: 0
+  };
+  componentDidUpdate(pP) {
+    const { type, opponent } = this.props;
+    const { sherlockWinAlgo: leftWinAlgo } = opponent.leftOpponent;
+    const { sherlockWinAlgo: rightWinAlgo } = opponent.rightOpponent;
+    var amount = 0;
+    const total = leftWinAlgo + rightWinAlgo;
+    if (pP.opponent !== opponent) {
+      if (total === 0) {
+        return;
+      } else if (type === "rightOpponent" && rightWinAlgo > leftWinAlgo) {
+        let percent = (rightWinAlgo / total) * 100;
+        amount = Math.ceil(percent);
+      } else if (type === "rightOpponent" && rightWinAlgo < leftWinAlgo) {
+        let percent = (rightWinAlgo / total) * 100;
+        amount = Math.floor(percent);
+      } else if (type === "leftOpponent" && leftWinAlgo > rightWinAlgo) {
+        let percent = (leftWinAlgo / total) * 100;
+        amount = Math.ceil(percent);
+      } else if (type === "leftOpponent" && leftWinAlgo < rightWinAlgo) {
+        let percent = (leftWinAlgo / total) * 100;
+        amount = Math.floor(percent);
+      }
+      this.setState({ percent: amount });
+    }
+  }
   render() {
+    const { percent } = this.state;
     const { update, type, opponent } = this.props;
     const { currentStats } = opponent[type];
-    console.log(this.props);
+    console.log(this.props.opponent);
     return (
       <div className="each_team">
         <header
@@ -23,7 +51,11 @@ class EachTeam extends Component {
             })`
           }}
         />
-
+        {/* <h3>
+          {type === "rightOpponent"
+            ? this.props.opponent.rightOpponent.currentStats.school_name
+            : this.props.opponent.leftOpponent.currentStats.school_name}
+        </h3> */}
         <SelectTeam update={update} type={type} />
         <div className="each_team__details">
           <h2>Coach</h2>
@@ -50,7 +82,7 @@ class EachTeam extends Component {
           </div>
         </section>
         <footer>
-          <h2>50%</h2>
+          <h2>{percent}%</h2>
         </footer>
       </div>
     );

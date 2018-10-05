@@ -127,6 +127,7 @@ export default function reducer(state = initialState, action) {
         ...state,
         leftOpponent: {
           ...state.leftOpponent,
+          sherlockWinAlgo: 0,
           currentStats: {},
           currentTeam: action.payload[0].data.rows,
           currentLogo: action.payload[1].data.rows[0].logo_link
@@ -137,6 +138,7 @@ export default function reducer(state = initialState, action) {
         ...state,
         rightOpponent: {
           ...state.rightOpponent,
+          sherlockWinAlgo: 0,
           currentStats: {},
           currentTeam: action.payload[0].data.rows,
           currentLogo: action.payload[1].data.rows[0].logo_link
