@@ -1,8 +1,14 @@
-.team_select {
-  width: 80%;
+.team_select,
+.year_select {
   text-align: center;
   height: 40px;
   font-weight: 900; }
+
+.team_select {
+  width: 270px; }
+
+.year_select {
+  width: 100px; }
 
 .example {
   display: flex;

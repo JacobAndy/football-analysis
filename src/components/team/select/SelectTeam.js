@@ -43,10 +43,7 @@ class SelectTeam extends Component {
           value={value}
           autoWidth={false}
           onClick={() =>
-            setTimeout(
-              () => this.setState({ awaitedSchools: this.state.schools }),
-              1
-            )
+            setTimeout(() => this.setState({ awaitedSchools: schools }), 1)
           }
           onBlurCapture={() => {
             this.setState({ awaitedSchools: schools.slice(0, 25) });

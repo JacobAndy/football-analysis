@@ -12,21 +12,7 @@ class SelectYear extends Component {
     currentYear: 1,
     years: null
   };
-  componentDidMount() {
-    //need to make xml request to the team
-    //that is passed through props
-    //then map through to create MenuItems
-    //*****OLD DUMMY DATA MAPPING */
-    // const years = schoolDetails.map(currentYear => {
-    //   const { year_id } = currentYear;
-    //   return (
-    //     <MenuItem style={{ width: "100px" }} key={year_id} value={year_id}>
-    //       {year_id}
-    //     </MenuItem>
-    //   );
-    // });
-    // this.setState({ years });
-  }
+
   componentDidUpdate(pP) {
     if (
       this.props.type === "rightOpponent" &&
@@ -70,21 +56,21 @@ class SelectYear extends Component {
     const { handleChange } = this;
     const { currentYear, years } = this.state;
     return (
-      <div className="example">
-        <Select
-          className="team_select"
-          name="currentYear"
-          onChange={handleChange}
-          value={currentYear}
-          style={{ borderBottom: "green" }}
-          autoWidth={false}
-        >
-          <MenuItem value={1} disabled>
-            Select Year
-          </MenuItem>
-          {years}
-        </Select>
-      </div>
+      // <div className="example">
+      <Select
+        className="year_select"
+        name="currentYear"
+        onChange={handleChange}
+        value={currentYear}
+        style={{ borderBottom: "green" }}
+        autoWidth={false}
+      >
+        <MenuItem value={1} disabled>
+          Year
+        </MenuItem>
+        {years}
+      </Select>
+      // </div>
     );
   }
 }

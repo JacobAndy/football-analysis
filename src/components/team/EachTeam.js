@@ -43,23 +43,24 @@ class EachTeam extends Component {
       <div className="each_team">
         <header
           className="each_team__background_image"
-          style={{
-            backgroundImage: `url(${
-              type === "leftOpponent"
-                ? this.props.opponent.leftOpponent.currentLogo
-                : this.props.opponent.rightOpponent.currentLogo
-            })`
-          }}
+          // style={{
+          //   backgroundImage: `url(${
+          //     type === "leftOpponent"
+          //       ? this.props.opponent.leftOpponent.currentLogo
+          //       : this.props.opponent.rightOpponent.currentLogo
+          //   })`
+          // }}
         />
         <SelectTeam update={update} type={type} />
-        <div className="each_team__details">
-          <h2>Coach</h2>
-          <h2>{currentStats.coaches ? currentStats.coaches : "Select Team"}</h2>
-        </div>
-        <div className="each_team__details">
-          <h2>Conference</h2>
-          <h2>{currentStats.conf_id ? currentStats.conf_id : "Select Team"}</h2>
-        </div>
+
+        <img
+          src={
+            type === "leftOpponent"
+              ? this.props.opponent.leftOpponent.currentLogo
+              : this.props.opponent.rightOpponent.currentLogo
+          }
+        />
+
         <section>
           <div>
             <h3>W</h3>
@@ -76,6 +77,15 @@ class EachTeam extends Component {
             <h3>{currentStats.year_ties ? currentStats.year_ties : 0}</h3>
           </div>
         </section>
+        <div className="each_team__details">
+          <h2>Coach</h2>
+          <h2>{currentStats.coaches ? currentStats.coaches : "Select Team"}</h2>
+        </div>
+        <div className="each_team__details">
+          <h2>Conference</h2>
+          <h2>{currentStats.conf_id ? currentStats.conf_id : "Select Team"}</h2>
+        </div>
+
         <footer>
           <h2>{percent}%</h2>
         </footer>
