@@ -11,8 +11,8 @@ class DoughnutChart extends Component {
       datasets: [
         {
           data: [50, 50],
-          backgroundColor: ["blue", "red"],
-          hoverBackgroundColor: ["blue", "red"]
+          backgroundColor: ["blue", "red"]
+          // hoverBackgroundColor: ["blue", "red"]
         }
       ]
     }
@@ -41,9 +41,13 @@ class DoughnutChart extends Component {
             {
               ...this.state.data.datasets[0],
               data: [
-                Math.floor(this.props.leftOpponent.sherlockWinAlgo),
-                Math.floor(this.props.rightOpponent.sherlockWinAlgo)
-              ]
+                Math.floor(leftSherlockAlgo),
+                Math.floor(rightSherlockAlgo)
+              ],
+              backgroundColor:
+                leftSherlockAlgo > rightSherlockAlgo
+                  ? ["green", "red"]
+                  : ["red", "green"]
             }
           ]
         }
@@ -53,14 +57,33 @@ class DoughnutChart extends Component {
   render() {
     const { data } = this.state;
     const {
+      sherlockWinAlgo: rightSherlockAlgo,
+      currentLogo: rightLogo,
       school_name: rightSchoolName = "right team"
     } = this.props.rightOpponent;
     const {
+      sherlockWinAlgo: leftSherlockAlgo,
+      currentLogo: leftLogo,
       school_name: leftSchoolName = "left team"
     } = this.props.leftOpponent;
     return (
-      <div className="doughnut">
-        <Doughnut responsive={true} data={data} />
+      <div
+        className="doughnut"
+        style={{
+          backgroundImage: `url(${
+            rightSherlockAlgo > leftSherlockAlgo ? rightLogo : leftLogo
+          })`
+        }}
+      >
+        <Doughnut
+          options={{
+            legend: {
+              display: false
+            }
+          }}
+          responsive={true}
+          data={data}
+        />
       </div>
     );
   }

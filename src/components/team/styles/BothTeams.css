@@ -1,3 +1,4 @@
+@import "https://www.behance.net/gallery/15876377/BUILDING-Free-Typeface";
 .both_teams {
   display: flex;
   justify-content: space-around;
@@ -11,13 +12,14 @@
     flex-direction: row;
     flex-wrap: wrap;
     font-weight: 900;
-    font-size: 28px;
+    font-size: 58px;
     color: black;
     letter-spacing: 4px;
-    height: 80px; }
+    height: 80px;
+    font-family: Behance, sans-serif; }
   .both_teams__chart {
     position: absolute;
-    bottom: 30px; }
+    bottom: 240px; }
 
 @media (max-width: 843px) {
   .both_teams {

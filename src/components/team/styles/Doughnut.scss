@@ -1,4 +1,12 @@
+@import "../../../Sass/_mixins";
+@import "../../../Sass/_variables";
 .doughnut {
-  height: 500px;
-  width: 750px;
+  @include flex(center, center, row);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 27%;
+
+  height: 300px;
+  width: 550px;
+  // background: blue;
 }

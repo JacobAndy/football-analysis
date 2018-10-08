@@ -7,7 +7,22 @@ import SelectTeam from "./select/SelectTeam";
 
 class EachTeam extends Component {
   state = {
-    percent: 0
+    percent: 0,
+    percentColor: "black"
+  };
+  percentColorCoordinator = () => {
+    const { type, opponent } = this.props;
+    const { sherlockWinAlgo: leftSherlockWin } = opponent.leftOpponent;
+    const { sherlockWinAlgo: rightSherlockWin } = opponent.rightOpponent;
+    return type === "leftOpponent" && leftSherlockWin > rightSherlockWin
+      ? "green"
+      : type === "rightOpponent" && leftSherlockWin < rightSherlockWin
+        ? "green"
+        : type === "leftOpponent" && leftSherlockWin < rightSherlockWin
+          ? "red"
+          : type === "rightOpponent" && leftSherlockWin > rightSherlockWin
+            ? "red"
+            : null;
   };
   componentDidUpdate(pP) {
     const { type, opponent } = this.props;
@@ -15,6 +30,7 @@ class EachTeam extends Component {
     const { sherlockWinAlgo: rightWinAlgo } = opponent.rightOpponent;
     var amount = 0;
     const total = leftWinAlgo + rightWinAlgo;
+    const newColor = this.percentColorCoordinator();
     if (pP.opponent !== opponent) {
       if (total === 0) {
         return;
@@ -31,63 +47,69 @@ class EachTeam extends Component {
         let percent = (leftWinAlgo / total) * 100;
         amount = Math.floor(percent);
       }
-      this.setState({ percent: amount });
+      console.log(newColor);
+      this.setState({
+        percent: amount,
+        percentColor: newColor
+      });
     }
   }
   render() {
-    const { percent } = this.state;
-    const { update, type, opponent } = this.props;
-    const { currentStats } = opponent[type];
-    console.log(this.props.opponent);
+    const { percent, percentColor } = this.state,
+      { update, type, opponent } = this.props,
+      { currentStats } = opponent[type],
+      { sherlockWinAlgo: leftSherlockWin } = this.props.opponent.leftOpponent,
+      { sherlockWinAlgo: rightSherlockWin } = this.props.opponent.rightOpponent;
+
     return (
       <div className="each_team">
         <header
           className="each_team__background_image"
-          // style={{
-          //   backgroundImage: `url(${
-          //     type === "leftOpponent"
-          //       ? this.props.opponent.leftOpponent.currentLogo
-          //       : this.props.opponent.rightOpponent.currentLogo
-          //   })`
-          // }}
+          style={{
+            backgroundImage: `url(${
+              type === "leftOpponent"
+                ? this.props.opponent.leftOpponent.currentLogo
+                : this.props.opponent.rightOpponent.currentLogo
+            })`
+          }}
         />
         <SelectTeam update={update} type={type} />
 
-        <img
+        {/* <img
           src={
             type === "leftOpponent"
               ? this.props.opponent.leftOpponent.currentLogo
               : this.props.opponent.rightOpponent.currentLogo
           }
-        />
+        /> */}
 
         <section>
           <div>
-            <h3>W</h3>
+            <h3 style={{ borderBottomColor: percentColor }}>W</h3>
             <h3>{currentStats.year_wins ? currentStats.year_wins : 0}</h3>
           </div>
 
           <div>
-            <h3>L</h3>
+            <h3 style={{ borderBottomColor: percentColor }}>L</h3>
             <h3>{currentStats.year_losses ? currentStats.year_losses : 0}</h3>
           </div>
 
           <div>
-            <h3>T</h3>
+            <h3 style={{ borderBottomColor: percentColor }}>T</h3>
             <h3>{currentStats.year_ties ? currentStats.year_ties : 0}</h3>
           </div>
         </section>
         <div className="each_team__details">
-          <h2>Coach</h2>
+          <h2 style={{ borderBottomColor: percentColor }}>Coach</h2>
           <h2>{currentStats.coaches ? currentStats.coaches : "Select Team"}</h2>
         </div>
         <div className="each_team__details">
-          <h2>Conference</h2>
+          <h2 style={{ borderBottomColor: percentColor }}>Conference</h2>
           <h2>{currentStats.conf_id ? currentStats.conf_id : "Select Team"}</h2>
         </div>
 
         <footer>
-          <h2>{percent}%</h2>
+          <h2 style={{ color: percentColor }}>{percent}%</h2>
         </footer>
       </div>
     );

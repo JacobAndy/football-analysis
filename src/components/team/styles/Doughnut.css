@@ -1,3 +1,11 @@
 .doughnut {
-  height: 500px;
-  width: 750px; }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 27%;
+  height: 300px;
+  width: 550px; }

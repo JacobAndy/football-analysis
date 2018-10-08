@@ -10,7 +10,7 @@
     height: 100%;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 80%;
+    background-size: 40%;
     opacity: 0.4;
     position: absolute;
     z-index: -1;
@@ -37,7 +37,7 @@
     width: 320px;
     min-width: 320px;
     margin: 25px auto 0 auto;
-    @include flex(space-around, center, row);
+    @include flex(space-between, center, row);
     div {
       @include flex(center, center, column);
       h3 {
@@ -46,7 +46,7 @@
         &:nth-child(1) {
           font-weight: 900;
           font-size: 23px;
-          border-bottom: 1px solid black;
+          border-bottom: 2px solid black;
         }
         &:nth-child(2) {
           font-weight: 600;
