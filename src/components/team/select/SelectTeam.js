@@ -22,6 +22,7 @@ class SelectTeam extends Component {
       this.setState({
         //does this work?
         //yes it works
+        //hahaha
         awaitedSchools: menuItemSchools.slice(0, 25),
         schools: menuItemSchools
       });
