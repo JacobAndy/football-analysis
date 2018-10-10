@@ -20,10 +20,6 @@ class SelectTeam extends Component {
         );
       });
       this.setState({
-        //does this work?
-        //yes it works
-        //hahaha
-        //test 2
         awaitedSchools: menuItemSchools.slice(0, 25),
         schools: menuItemSchools
       });
