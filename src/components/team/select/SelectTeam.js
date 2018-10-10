@@ -23,6 +23,7 @@ class SelectTeam extends Component {
         //does this work?
         //yes it works
         //hahaha
+        //test 2
         awaitedSchools: menuItemSchools.slice(0, 25),
         schools: menuItemSchools
       });
