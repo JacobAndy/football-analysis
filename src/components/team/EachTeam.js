@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import "./styles/EachTeam.css";
+import footballhelmet from "./football-helmet.svg";
 
 import SelectTeam from "./select/SelectTeam";
 
@@ -62,8 +63,13 @@ class EachTeam extends Component {
       { sherlockWinAlgo: rightSherlockWin } = this.props.opponent.rightOpponent;
 
     return (
-      <div className="each_team">
-        <header
+      <div
+        className="each_team"
+        style={{
+          alignItems: type === "leftOpponent" ? "flex-end" : "flex-start"
+        }}
+      >
+        {/* <header
           className="each_team__background_image"
           style={{
             backgroundImage: `url(${
@@ -72,16 +78,10 @@ class EachTeam extends Component {
                 : this.props.opponent.rightOpponent.currentLogo
             })`
           }}
-        />
+        /> */}
         <SelectTeam update={update} type={type} />
 
-        {/* <img
-          src={
-            type === "leftOpponent"
-              ? this.props.opponent.leftOpponent.currentLogo
-              : this.props.opponent.rightOpponent.currentLogo
-          }
-        /> */}
+        <img className={type==="leftOpponent" ? "each_team__leftOpponent-helmet each_team__helmet" : "each_team__rightOpponent-helmet each_team__helmet"} src={footballhelmet} width="50" height="50" />
 
         <section>
           <div>

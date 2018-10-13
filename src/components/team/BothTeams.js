@@ -15,11 +15,14 @@ class BothTeams extends Component {
     return (
       <div className="both_teams">
         <EachTeam type="leftOpponent" update={updateLeft} />
-        <h2 className="both_teams__h2">VS</h2>
-        <EachTeam type="rightOpponent" update={updateRight} />
-        <section className="both_teams__chart">
-          <Doughnut />
+        <section>
+          <h2 className="both_teams__h2">VS</h2>
+          <i className="fa fa-football-ball" id="football_spin" />
         </section>
+        <EachTeam type="rightOpponent" update={updateRight} />
+        {/* <section className="both_teams__chart">
+          <Doughnut />
+        </section> */}
       </div>
     );
   }
