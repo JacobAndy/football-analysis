@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import "./styles/EachTeam.css";
 
 import SelectTeam from "./select/SelectTeam";
+import footballhelmet from "./football-helmet.svg";
 
 class EachTeam extends Component {
   state = {
@@ -74,7 +75,15 @@ class EachTeam extends Component {
           }}
         />
         <SelectTeam update={update} type={type} />
-
+        <section
+          id={
+            type === "leftOpponent"
+              ? "each_team__left-helmet"
+              : "each_team__right-helmet"
+          }
+        >
+          <img src={footballhelmet} width="70" height="70" />
+        </section>
         {/* <img
           src={
             type === "leftOpponent"

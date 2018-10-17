@@ -3,6 +3,12 @@
 @import "https://www.behance.net/gallery/15876377/BUILDING-Free-Typeface";
 .both_teams {
   @include flex(space-around, flex-start, row);
+  &__vs {
+    @include flex(center, center, column);
+    i {
+      transform: rotate(45deg);
+    }
+  }
   &__h2 {
     @include flex(center, center, row);
     font-weight: 900;

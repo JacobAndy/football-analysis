@@ -5,6 +5,14 @@
   min-width: 320px;
   height: 100vh;
   position: relative;
+
+  #each_team__left-helmet {
+    transform: scaleX(-1);
+    animation: footballhelmets 3s;
+  }
+  #each_team__right-helmet {
+    // animation: footballhelmets 3s;
+  }
   &__background_image {
     width: 100%;
     height: 100%;
@@ -77,5 +85,14 @@
 @media (max-width: "843px") {
   .each_team {
     width: 100%;
+  }
+}
+@keyframes footballhelmets {
+  0% {
+    // transform: scaleX(-1);
+    transform: translate(0px);
+  }
+  100% {
+    transform: translate(100px);
   }
 }

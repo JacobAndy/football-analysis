@@ -5,6 +5,14 @@
   align-items: flex-start;
   flex-direction: row;
   flex-wrap: wrap; }
+  .both_teams__vs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap; }
+    .both_teams__vs i {
+      transform: rotate(45deg); }
   .both_teams__h2 {
     display: flex;
     justify-content: center;
