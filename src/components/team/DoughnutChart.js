@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 // import * as d3 from "d3";
-import { Doughnut } from "react-chartjs-2";
-import "./styles/Doughnut.css";
+import { Doughnut } from 'react-chartjs-2';
+import './assets/styles/Doughnut.css';
 
 class DoughnutChart extends Component {
   state = {
     data: {
-      labels: ["select", "select"],
+      labels: ['select', 'select'],
       datasets: [
         {
           data: [50, 50],
-          backgroundColor: ["blue", "red"]
+          backgroundColor: ['blue', 'red']
           // hoverBackgroundColor: ["blue", "red"]
         }
       ]
@@ -20,11 +20,11 @@ class DoughnutChart extends Component {
   componentDidUpdate(pP) {
     const { sherlockWinAlgo: leftSherlockAlgo } = this.props.leftOpponent,
       {
-        school_name: leftSchoolName = "select"
+        school_name: leftSchoolName = 'select'
       } = this.props.leftOpponent.currentStats,
       { sherlockWinAlgo: rightSherlockAlgo } = this.props.rightOpponent,
       {
-        school_name: rightSchoolName = "select"
+        school_name: rightSchoolName = 'select'
       } = this.props.rightOpponent.currentStats;
 
     const { sherlockWinAlgo: pPleftSherlockAlgo } = pP.leftOpponent,
@@ -46,8 +46,8 @@ class DoughnutChart extends Component {
               ],
               backgroundColor:
                 leftSherlockAlgo > rightSherlockAlgo
-                  ? ["green", "red"]
-                  : ["red", "green"]
+                  ? ['green', 'red']
+                  : ['red', 'green']
             }
           ]
         }
@@ -59,12 +59,12 @@ class DoughnutChart extends Component {
     const {
       sherlockWinAlgo: rightSherlockAlgo,
       currentLogo: rightLogo,
-      school_name: rightSchoolName = "right team"
+      school_name: rightSchoolName = 'right team'
     } = this.props.rightOpponent;
     const {
       sherlockWinAlgo: leftSherlockAlgo,
       currentLogo: leftLogo,
-      school_name: leftSchoolName = "left team"
+      school_name: leftSchoolName = 'left team'
     } = this.props.leftOpponent;
     return (
       <div

@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { getSchools } from "../../ducks/teams";
-import { updateLeft, updateRight } from "../../ducks/opponent";
-import "./styles/BothTeams.css";
-import EachTeam from "./EachTeam";
-import Doughnut from "./DoughnutChart";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getSchools } from '../../ducks/teams';
+import { updateLeft, updateRight } from '../../ducks/opponent';
+import './assets/styles/BothTeams.css';
+import EachTeam from './EachTeam';
+import Doughnut from './DoughnutChart';
 
 class BothTeams extends Component {
   componentDidMount() {

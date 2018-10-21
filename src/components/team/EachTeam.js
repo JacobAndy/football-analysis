@@ -1,28 +1,28 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import "./styles/EachTeam.css";
+import './assets/styles/EachTeam.css';
 
-import SelectTeam from "./select/SelectTeam";
-import footballhelmet from "./football-helmet.svg";
+import SelectTeam from './select/SelectTeam';
+import footballhelmet from './assets/icons/football-helmet.svg';
 
 class EachTeam extends Component {
   state = {
     percent: 0,
-    percentColor: "black"
+    percentColor: 'black'
   };
   percentColorCoordinator = () => {
     const { type, opponent } = this.props;
     const { sherlockWinAlgo: leftSherlockWin } = opponent.leftOpponent;
     const { sherlockWinAlgo: rightSherlockWin } = opponent.rightOpponent;
-    return type === "leftOpponent" && leftSherlockWin > rightSherlockWin
-      ? "green"
-      : type === "rightOpponent" && leftSherlockWin < rightSherlockWin
-        ? "green"
-        : type === "leftOpponent" && leftSherlockWin < rightSherlockWin
-          ? "red"
-          : type === "rightOpponent" && leftSherlockWin > rightSherlockWin
-            ? "red"
+    return type === 'leftOpponent' && leftSherlockWin > rightSherlockWin
+      ? 'green'
+      : type === 'rightOpponent' && leftSherlockWin < rightSherlockWin
+        ? 'green'
+        : type === 'leftOpponent' && leftSherlockWin < rightSherlockWin
+          ? 'red'
+          : type === 'rightOpponent' && leftSherlockWin > rightSherlockWin
+            ? 'red'
             : null;
   };
   componentDidUpdate(pP) {
@@ -35,16 +35,16 @@ class EachTeam extends Component {
     if (pP.opponent !== opponent) {
       if (total === 0) {
         return;
-      } else if (type === "rightOpponent" && rightWinAlgo > leftWinAlgo) {
+      } else if (type === 'rightOpponent' && rightWinAlgo > leftWinAlgo) {
         let percent = (rightWinAlgo / total) * 100;
         amount = Math.ceil(percent);
-      } else if (type === "rightOpponent" && rightWinAlgo < leftWinAlgo) {
+      } else if (type === 'rightOpponent' && rightWinAlgo < leftWinAlgo) {
         let percent = (rightWinAlgo / total) * 100;
         amount = Math.floor(percent);
-      } else if (type === "leftOpponent" && leftWinAlgo > rightWinAlgo) {
+      } else if (type === 'leftOpponent' && leftWinAlgo > rightWinAlgo) {
         let percent = (leftWinAlgo / total) * 100;
         amount = Math.ceil(percent);
-      } else if (type === "leftOpponent" && leftWinAlgo < rightWinAlgo) {
+      } else if (type === 'leftOpponent' && leftWinAlgo < rightWinAlgo) {
         let percent = (leftWinAlgo / total) * 100;
         amount = Math.floor(percent);
       }
@@ -63,8 +63,13 @@ class EachTeam extends Component {
       { sherlockWinAlgo: rightSherlockWin } = this.props.opponent.rightOpponent;
 
     return (
-      <div className="each_team">
-        <header
+      <div
+        className="each_team"
+        style={{
+          alignItems: type === 'leftOpponent' ? 'flex-end' : 'flex-start'
+        }}
+      >
+        {/* <header
           className="each_team__background_image"
           style={{
             backgroundImage: `url(${
@@ -73,13 +78,13 @@ class EachTeam extends Component {
                 : this.props.opponent.rightOpponent.currentLogo
             })`
           }}
-        />
+        /> */}
         <SelectTeam update={update} type={type} />
         <section
           id={
-            type === "leftOpponent"
-              ? "each_team__left-helmet"
-              : "each_team__right-helmet"
+            type === 'leftOpponent'
+              ? 'each_team__left-helmet'
+              : 'each_team__right-helmet'
           }
         >
           <img src={footballhelmet} width="70" height="70" />
@@ -110,11 +115,11 @@ class EachTeam extends Component {
         </section>
         <div className="each_team__details">
           <h2 style={{ borderBottomColor: percentColor }}>Coach</h2>
-          <h2>{currentStats.coaches ? currentStats.coaches : "Select Team"}</h2>
+          <h2>{currentStats.coaches ? currentStats.coaches : 'Select Team'}</h2>
         </div>
         <div className="each_team__details">
           <h2 style={{ borderBottomColor: percentColor }}>Conference</h2>
-          <h2>{currentStats.conf_id ? currentStats.conf_id : "Select Team"}</h2>
+          <h2>{currentStats.conf_id ? currentStats.conf_id : 'Select Team'}</h2>
         </div>
 
         <footer>

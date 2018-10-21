@@ -1,0 +1,65 @@
+@import '../../../Sass/_mixins';
+@import '../../../Sass/_variables';
+@import 'https://www.behance.net/gallery/15876377/BUILDING-Free-Typeface';
+#football_spin {
+  animation: footballspin ease-in 2s;
+}
+.both_teams {
+  @include flex(space-around, flex-start, row);
+  &__vs {
+    @include flex(center, center, column);
+    i {
+      transform: rotate(45deg);
+    }
+  }
+  &__h2 {
+    @include flex(center, center, row);
+    font-weight: 900;
+    font-size: 58px;
+    color: black;
+    letter-spacing: 4px;
+    height: 80px;
+    font-family: Behance, sans-serif;
+  }
+  &__chart {
+    position: absolute;
+    bottom: 240px;
+  }
+}
+@media (max-width: '843px') {
+  .both_teams {
+    @include flex(space-around, center, column);
+  }
+}
+@keyframes footballspin {
+  // 0%{
+  //   transform: rotate(45deg)
+  // }
+  // 20%{
+  //   transform:rotate(25deg)
+  // }
+  // 35%{
+  //   transform:rotate(425deg)
+  // }
+  // 50%{
+  //   transform: rotate(405deg)
+  // }
+  // 70%{
+  //   transform:rotate(425deg)
+  // }
+  // 85%{
+  //   transform:rotate(25deg)
+  // }
+  // 100%{
+  //   transform: rotate(45deg)
+  // }
+  0% {
+    transform: rotate(45deg);
+  }
+  70% {
+    transform: rotate(1140deg);
+  }
+  100% {
+    transform: rotate(1125deg);
+  }
+}

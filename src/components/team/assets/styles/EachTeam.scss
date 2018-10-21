@@ -1,6 +1,7 @@
-@import "../../../Sass/_mixins";
-@import "../../../Sass/_variables";
+@import '../../../Sass/_mixins';
+@import '../../../Sass/_variables';
 .each_team {
+  @include flex(space-around, flex-start, column);
   width: 40vw;
   min-width: 320px;
   height: 100vh;
@@ -25,8 +26,8 @@
     // transition: background-image 0.5s;
   }
   &__details {
-    width: 100%;
-    @include flex(center, center, column);
+    // width: 100%;
+    @include flex(flex-start, center, column);
     margin-top: 25px;
     h2 {
       box-sizing: border-box;
@@ -44,7 +45,7 @@
   section {
     width: 320px;
     min-width: 320px;
-    margin: 25px auto 0 auto;
+    // margin: 25px auto 0 auto;
     @include flex(space-between, center, row);
     div {
       @include flex(center, center, column);
@@ -82,7 +83,7 @@
     }
   }
 }
-@media (max-width: "843px") {
+@media (max-width: '843px') {
   .each_team {
     width: 100%;
   }

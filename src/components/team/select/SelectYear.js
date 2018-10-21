@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { currentStats } from "../../../ducks/opponent";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { currentStats } from '../../../ducks/opponent';
 
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
-import "../styles/Select.css";
+import '../assets/styles/Select.css';
 
 class SelectYear extends Component {
   state = {
@@ -15,7 +15,7 @@ class SelectYear extends Component {
 
   componentDidUpdate(pP) {
     if (
-      this.props.type === "rightOpponent" &&
+      this.props.type === 'rightOpponent' &&
       pP.rightOpponent !== this.props.rightOpponent
     ) {
       //right opponent mapping
@@ -23,14 +23,14 @@ class SelectYear extends Component {
       const years = currentTeam.map(currentYear => {
         const { year_id } = currentYear;
         return (
-          <MenuItem style={{ width: "100px" }} key={year_id} value={year_id}>
+          <MenuItem style={{ width: '100px' }} key={year_id} value={year_id}>
             {year_id}
           </MenuItem>
         );
       });
       this.setState({ years });
     } else if (
-      this.props.type === "leftOpponent" &&
+      this.props.type === 'leftOpponent' &&
       pP.leftOpponent !== this.props.leftOpponent
     ) {
       //left opponent mapping
@@ -38,7 +38,7 @@ class SelectYear extends Component {
       const years = currentTeam.map(currentYear => {
         const { year_id } = currentYear;
         return (
-          <MenuItem style={{ width: "100px" }} key={year_id} value={year_id}>
+          <MenuItem style={{ width: '100px' }} key={year_id} value={year_id}>
             {year_id}
           </MenuItem>
         );
@@ -62,7 +62,7 @@ class SelectYear extends Component {
         name="currentYear"
         onChange={handleChange}
         value={currentYear}
-        style={{ borderBottom: "green" }}
+        style={{ borderBottom: 'green' }}
         autoWidth={false}
       >
         <MenuItem value={1} disabled>

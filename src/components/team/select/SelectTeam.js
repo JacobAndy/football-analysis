@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
-import SelectYear from "./SelectYear";
-import "../styles/Select.css";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import SelectYear from './SelectYear';
+import '../assets/styles/Select.css';
 
 class SelectTeam extends Component {
   state = { value: 1, schools: [], awaitedSchools: [] };
@@ -43,7 +43,7 @@ class SelectTeam extends Component {
           value={value}
           autoWidth={false}
           onClick={() =>
-            setTimeout(() => this.setState({ awaitedSchools: schools }), 1)
+            setTimeout(() => this.setState({ awaitedSchools: schools }), 200)
           }
           onBlurCapture={() => {
             this.setState({ awaitedSchools: schools.slice(0, 25) });
